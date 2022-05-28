@@ -1,16 +1,16 @@
-# My Solution
+# MY SOLUTION
 
 ## 1. Virtual Machine Configuration
 
-Context: We got an xml machine configuration for `libvirt` that runs a qemu virtual machine.
-
-### A. Instalation of needed programs  
+Context: We got an xml machine configuration for `libvirt` that runs a qemu virtual machine.  
 
 NOTE: I'm working on ubuntu 20.04 LTS. I try to used the easiest way to install all the needs and for me is using the `apt`, `apt-get` or `snap`.  
 
-As the xml are generated working with `qemu` I try to recreate the envoirment the most similar and going to use `qemu`.  
+### A. Instalation of needed programs  
 
-The first thing to do is take a look if our computer is capable to do the virtualitzation the command `vm-ok` will answer the question and will show something like this:
+As the xml are generated working with `qemu` I tried to recreate the envoirment the most similar and going to use `qemu`.  
+
+The first thing to do is take a look if our computer is capable to do the virtualitzation. The command `vm-ok` will answer the question and will show something like this:
 
 After this we can install `libvirt` and `qemu`:   
 
@@ -22,11 +22,12 @@ After this we can install `virt-manager` to have a visual reference of the machi
 
 Having all the tools to work with virtual machines, as the instructions provided tells to us we need to change the route where we have downloaded the SO image in or vm.xml.  
 
-In my case I have downloaded to assets but to avoid any problem I have write the whole route in the path '/home/david/Projects/tech-test-infra/assets/debian10-ssh.img.tar.xz'
+In my case I have downloaded to assets but to avoid any problem I have wrote the whole route in the path '/home/david/Projects/tech-test-infra/assets/debian10-ssh.img.tar.xz'
 
 ### C. Running the Virtual Machine
 
-After this the only thing we need to do to have our virtual machine is call `virsh` giving the path of the vm.xml file. In this case I did the change directory (cd) until where vm.xml is stored and typed:  
+After this the only thing we need to do to have our virtual machine running is call `virsh` giving the path of the vm.xml file. In this case I did the change directory (cd) until where vm.xml is stored and typed:
+  
 `virsh create vm.xml`  
 
 ### D. Some useful links for this part  
