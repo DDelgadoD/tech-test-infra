@@ -1,5 +1,7 @@
 # MY SOLUTION
 
+![completed image](examples/Test-tech-infra.jpg)
+
 ## 1. Virtual Machine Configuration
 
 Context: We got an xml machine configuration for `libvirt` that runs a qemu virtual machine.  
