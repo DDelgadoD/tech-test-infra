@@ -1,5 +1,16 @@
 ![completed image](images/Test-tech-infra.jpg)
 
+## 0. State of the test requeriments
+
+- [ ] Proper ansible project structure
+- [X] Use docker to run ansible
+- [X] Use ssh-agent inside ansible container
+- [X] Run frontend and backend services using docker
+- [X] Backend application configurable using environment variables
+- [X] Don't run services as root
+- [ ] Configure & deploy EVERYTHING using a single command, i.e: bash script
+
+
 ## 1. Virtual Machine Configuration
 
 Context: We got an xml machine configuration for `libvirt` that runs a qemu virtual machine.  
