@@ -1,5 +1,3 @@
-# MY SOLUTION
-
 ![completed image](examples/Test-tech-infra.jpg)
 
 ## 1. Virtual Machine Configuration
@@ -55,7 +53,7 @@ Next step was creating dockerfile where the html will be executed in a server. I
 
 ## 2. Backend Preprartion
 
-### A. How I did
+### A. A little explanation
 
 For backend I have created a simple flask app that serves on `host:5000\clock` a timestamp. You can change the port and the host in .env file and in the app this values are achieved from os envoirment. 
 
