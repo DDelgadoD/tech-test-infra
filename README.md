@@ -1,4 +1,4 @@
-![completed image](examples/Test-tech-infra.jpg)
+![completed image](images/Test-tech-infra.jpg)
 
 ## 1. Virtual Machine Configuration
 
@@ -115,7 +115,7 @@ The goal of this test is to deploy a simple "clock" web application (frontend + 
 
 Frontend is periodically calling at `/clock` endpoint (`HTTP GET` at port `80`) to gather timestamp information from a backend that doesn't exists yet.
 
-![completed image](examples/todo.png)
+![completed image](images/todo.png)
 
 ### Backend application
 
@@ -135,7 +135,7 @@ Backend should be responding at path `/clock` and returning a unix timestamp lik
 
 If everything works, that is how it should look when accessing the virtual machine at port `80`:
 
-![completed image](examples/completed.png)
+![completed image](images/completed.png)
 
 
 ## Extra points
