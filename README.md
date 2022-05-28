@@ -36,8 +36,47 @@ After this the only thing we need to do to have our virtual machine running is c
 
 
 https://ubuntu.com/server/docs/virtualization-libvirt  
+
 https://ubuntu.com/server/docs/virtualization-virt-tools#libvirt-virt-manager  
+
 https://libvirt.org/  
+
+## 2. Frontend Preprartion
+
+In front end I only need to modify the URL where clock goes to get the information. It goes from: 
+
+`const CLOCK_URL = '/clock';`
+
+to:
+
+`const CLOCK_URL = 'http://localhost:5000/clock';`
+
+Next step was creating dockerfile where the html will be executed in a server. I take a docker image with nginx and in the dockerfile copied the html to the directory where nginx stores the html to serve. This image having nginx has the port `80` opened and you can achieve the frontend.
+
+## 2. Backend Preprartion
+
+### A. How I did
+
+For backend I have created a simple flask app that serves on `host:5000\clock` a timestamp. You can change the port and the host in .env file and in the app this values are achieved from os envoirment. 
+
+To dockerize this backend I take a docker image for flask that exposes the port `5000` and runs the app clock.
+
+I have used poetry to manage dependencies.
+
+### B. Some useful links for this part  
+
+https://blog.doppler.com/environment-variables-in-python  
+
+https://python-poetry.org/  
+
+https://medium.com/thedevproject/start-using-env-for-your-flask-project-and-stop-using-environment-variables-for-development-247dc12468be  
+
+https://www.api-ux.com/2022/02/16/como-crear-una-api-simple-con-python-flask-y-contenedores/  
+
+
+## 3. Ansible Dockerized.
+
+I taked a image of debian 11 to dockerize ansible. In this 
 
 ----  
     
