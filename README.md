@@ -22,7 +22,7 @@ After this we can install `virt-manager` to have a visual reference of the machi
 
 Having all the tools to work with virtual machines, as the instructions provided tells to us we need to change the route where we have downloaded the SO image in or vm.xml.  
 
-In my case I have downloaded to assets but to avoid any problem I have wrote the whole route in the path '/home/david/Projects/tech-test-infra/assets/debian10-ssh.img.tar.xz'
+In my case I have downloaded to assets but to avoid any problem I have wrote the whole route in the path '/home/david/Projects/tech-test-infra/vm configuration/debian10-ssh.img.tar.xz'
 
 ### C. Running the Virtual Machine
 
@@ -74,7 +74,15 @@ https://www.api-ux.com/2022/02/16/como-crear-una-api-simple-con-python-flask-y-c
 
 ## 3. Ansible Dockerized.
 
-I taked a image of debian 11 to dockerize ansible. In this 
+### A. Docker image configuration 
+
+I taked a image of debian 11 to dockerize ansible. The dockerfile for this part has more configuration and I have to install python, ssh, and some more requeriments to lastly install ansible.
+
+Installed ansible, next step is the configuration of the directories and copy the playbook into the docker image and some others files like hosts.
+
+As you tell in your requeriments in addition I have configured and imported the keys with ssh-agent in order to connect to the virtual machine via ssh.
+
+### B. Ansible playbook preparation 
 
 ----  
     
