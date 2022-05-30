@@ -1,0 +1,13 @@
+vars:
+  docker_image_frontend: "nginx:alpine"
+  dir_frontend: "frontend"
+  docker_container_name_frontend: "Docker_Frontend"
+  port_frontend: "80"
+  port_host_for_frontend: "80"
+  docker_image_backend: "python:3.8-slim"
+  dir_backend: "backend"
+  docker_container_name_backend: "Docker_backend"
+  port_backend: "5000"
+  port_host_for_backend: "5000"
+  ansible_ssh_private_key_file: "rsa"
+    

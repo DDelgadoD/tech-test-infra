@@ -20,7 +20,7 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
-      <source file='/home/david/Projects/tech-test-infra/assets/debian10-ssh.img.tar.xz'/>
+      <source file='/home/david/Projects/tech-test-infra/vm_config/debian10-ssh.img.tar.xz'/>
       <backingStore/>
       <target dev='vda' bus='virtio'/>
       <alias name='virtio-disk0'/>
