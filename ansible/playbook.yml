@@ -1,0 +1,91 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Install aptitude
+      apt:
+        name: aptitude
+        state: latest
+        update_cache: true
+
+    - name: Install required system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/debian buster stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: true
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+    
+    - name: "[FRONTEND] Copy Docker file"
+      copy:
+        src: "{{dir_frontend}}"
+        dest: "/srv/"
+
+    - name: "[FRONTEND] Build docker image from Dockerfile"
+      docker_image:
+        name:  "{{docker_image_frontend}}"
+        build:
+          pull: yes
+          path: "/srv/{{front_end_dir}}/"
+        state: present
+        source: build
+  
+    - name: "[FRONTEND] launch docker container"
+      docker_container:
+        name: "{{docker_container_name_frontend}}"
+        image: "{{docker_image_frontend}}"
+        state: started
+        ports:
+        - "{{port_frontend}}:{{port_host_for_frontend}}"
+      register: docker_info
+
+    - name: "[BACKEND] Copy Docker file"
+      copy:
+        src: "{{dir_backend}}"
+        dest: "/srv/"
+
+    - name: "[BACKEND] Build docker image from Dockerfile"
+      docker_image:
+        name:  "{{docker_image_backend}}"
+        build:
+          pull: yes
+          path: "/srv/{{dir_backend}}/"
+        state: present
+        source: build
+  
+    - name: "[BACKEND] launch docker container"
+      docker_container:
+        name: "{{docker_container_name_backend}}"
+        image: "{{docker_image_backend}}"
+        state: started
+        ports:
+        - "{{port_backend}}:{{port_host_for_backend}}"
+      register: docker_info
